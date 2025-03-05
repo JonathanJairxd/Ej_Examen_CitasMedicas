@@ -14,6 +14,9 @@ const verificarAutenticacion = async (req, res, next) => {
         if (rol === "Usuario") {
             req.usuarioBDD = await Usuario.findById(id).lean().select("-password")
             next();
+        }else {
+            // Si el rol no es "Usuario", devuelve un error o una respuesta personalizada
+            return res.status(403).json({ msg: "No tienes permisos suficientes para acceder a esta área" });
         }
         
     } catch (error) {
