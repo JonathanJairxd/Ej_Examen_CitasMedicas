@@ -11,6 +11,8 @@ import routerPaciente from './routers/paciente_routes.js';
 
 import routerEspecialidad from './routers/especialidad_routes.js';
 
+import routerCita from './routers/cita_routes.js';
+
 // Inicializaciones
 const app = express()
 dotenv.config()
@@ -35,6 +37,8 @@ app.use('/api/usuario',routerUsuario)
 app.use('/api/paciente',routerPaciente)
 
 app.use('/api/especialidad', routerEspecialidad)
+
+app.use('/api/cita', routerCita)
 
 // Rutas no encontradas
 app.use((req,res)=>res.status(404).send("Endpoint no encontrado - 404"))
